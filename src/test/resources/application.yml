@@ -1,21 +1,22 @@
 cors:
   originPatterns: http//localhost:8080
+server:
+  port: 8888
 security:
   jwt:
     token:
       secret-key: 53cr37
-      expire-length: 36000000
+      expiration: 36000000
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/rest_w_springboot?useTimezone=true&serverTimezone=UTC
-    hikari:
-      username: root
-      password: 123123
+  profiles:
+    active: default
   jpa:
     hibernate:
       ddl-auto: none
     open-in-view: false
+
 springdoc:
   api-docs:
     enabled: true
@@ -23,7 +24,7 @@ springdoc:
     enabled: true
     use-root-path: true
   paths-to-match:
-    - /api/**/v1/**
+    - /api/**/v1**
     - /auth/**
 logging:
   level:
